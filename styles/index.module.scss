@@ -1,0 +1,19 @@
+@import "./variables";
+
+.decor {
+    display: block;
+    position: absolute;
+    z-index: -99;
+    width: 55vw;
+    @include respond-to(xs) {
+        width: 100vw;
+    }
+    &.topDecor {
+        top: 0;
+        left: 0;
+    }
+    &.middleDecor {
+        right: 0;
+        top: 270px + 100px;
+    }
+}

@@ -1,209 +1,117 @@
+import React from 'react'
 import Head from 'next/head'
+import Styles from '../styles/index.module.scss'
+import Navigation from '../components/navigation'
+import Banner from '../components/banner'
+import About from '../components/about'
+import ListPricing from '../components/list-pricing'
+import Contact from '../components/contact'
+import Footer from '../components/footer'
+import Container from '../components/container'
 
-export default function Home() {
-  return (
-    <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+class Home extends React.Component {
 
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+  constructor(props) {
+    super(props)
 
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/zeit/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
+    this.state = {
+      tiers: [
+        {
+          name: "Basic",
+          action: [
+            "Mencatat barang masuk",
+            "Mencatat barang keluar",
+            "Mencatat hasil keuntungan"
+          ],
+          price: "$40"
+        },
+        {
+          name: "Business",
+          action: [
+            "Mencatat barang masuk dan keluar",
+            "Mencatat Keuntungan",
+            "Dapat menganalisa hasil penjualan dengan CHART",
+            "Support 7x24 Jam",
+          ],
+          price: "$140"
+        },
+        {
+          name: "Entrepreneur",
+          action: [
+            "Mencatat barang masuk dan keluar",
+            "Mencatat Keuntungan",
+            "Dapat menganalisa hasil penjualan dengan CHART",
+            "Support 7x24 Jam",
+            "Export data ke Excel",
+            "AI Prediksi penghasilan"
+          ],
+          price: "$240"
         }
+      ]
+    }
+  }
 
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
+  render() {
 
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
+    const { tiers } = this.state
 
-        footer img {
-          margin-left: 0.5rem;
-        }
+    return (
+      <div id="home">
+        <Head>
+          <title>Analiser - Analyze your business</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
+        <Navigation />
 
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
+        {/* Decoration for top screen */}
+        <svg className={`${Styles.decor} ${Styles.topDecor}`} viewBox="0 0 511 270" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0H511C511 0 360 270 206 270C69.3427 270 0 202 0 202V0Z" fill="#108DE8" />
+          <path d="M0 0H511C511 0 360 270 206 270C69.3427 270 0 202 0 202V0Z" fill="url(#paint0_linear)" />
+          <defs>
+            <linearGradient id="paint0_linear" x1="255.5" y1="0" x2="255.5" y2="270" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#01D1FF" />
+              <stop offset="1" stopColor="white" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+        </svg>
 
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
+        <main>
+          <Container>
+            <Banner />
+            <About />
 
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
+            {/* Decoration for middle screen */}
+            <svg className={`${Styles.decor} ${Styles.middleDecor}`} viewBox="0 0 754 663" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M204.357 335.716C204.357 378.518 169.659 413.216 126.857 413.216C84.0548 413.216 49.3569 378.518 49.3569 335.716C49.3569 292.914 84.0548 258.216 126.857 258.216C169.659 258.216 204.357 292.914 204.357 335.716Z" fill="url(#paint0_linear)" />
+              <path d="M606.357 102.716C606.357 145.518 571.659 180.216 528.857 180.216C486.055 180.216 451.357 145.518 451.357 102.716C451.357 59.9137 486.055 25.2158 528.857 25.2158C571.659 25.2158 606.357 59.9137 606.357 102.716Z" fill="url(#paint1_linear)" />
+              <path d="M753.857 1.21581C715.857 -5.61753 661.664 14.7158 650.857 104.216C637.357 216.013 544.857 254.216 435.357 178.216C325.857 102.216 272.678 162.716 253.857 290.216C238.357 395.216 233.192 439.807 115.357 453.716C-37.1431 471.716 -8.99999 630.5 38.0001 662.5H753.857V1.21581Z" fill="url(#paint2_linear)" />
+              <defs>
+                <linearGradient id="paint0_linear" x1="377" y1="105.5" x2="325.353" y2="768.235" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#A9F0FF" />
+                  <stop offset="1" stopColor="white" stopOpacity="0" />
+                </linearGradient>
+                <linearGradient id="paint1_linear" x1="377" y1="105.5" x2="325.353" y2="768.235" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#A9F0FF" />
+                  <stop offset="1" stopColor="white" stopOpacity="0" />
+                </linearGradient>
+                <linearGradient id="paint2_linear" x1="377" y1="105.5" x2="325.353" y2="768.235" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#A9F0FF" />
+                  <stop offset="1" stopColor="white" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+            </svg>
 
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
+            <ListPricing tiers={tiers} />
+            <Contact />
+          </Container>
+        </main>
 
-        .title,
-        .description {
-          text-align: center;
-        }
+        <Footer />
 
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
-  )
+      </div >
+    )
+  }
 }
+
+export default Home

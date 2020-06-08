@@ -1,0 +1,139 @@
+@import "./variables";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+$fontFamily: "Poppins", sans-serif;
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    body {
+        padding: 0;
+        margin: 0;
+        background-color: $backgroundColor;
+        color: $foregroundColor;
+        font-family: $fontFamily;
+        a {
+            display: inline-block;
+            border-bottom: 3px solid $foregroundColor;
+            cursor: pointer;
+            line-height: 18px;
+            text-decoration: none;
+            color: $foregroundColor;
+            &:hover {
+                @include prefix(transition, 0.3s ease-in-out, moz webkit ms o);
+                border-bottom: 3px solid $primaryColor;
+                line-height: 0px;
+            }
+        }
+        .btn {
+            display: inline-block;
+            border-radius: 8px;
+            > * {
+                margin: {
+                    top: auto;
+                    bottom: auto;
+                }
+            }
+            background: {
+                image: $primaryGradient;
+                color: $primaryColor;
+            }
+            padding: 12px {
+                left: 48px;
+                right: 48px;
+            }
+            @include respond-to(xs) {
+                padding: 12px;
+            }
+            color: $backgroundColor;
+            font-weight: 700;
+            text: {
+                decoration: none;
+                transform: uppercase;
+            }
+            cursor: pointer;
+            border: none;
+            @include shadow();
+            &:hover {
+                @include prefix(transition, 0.3s ease-in-out, moz webkit ms o);
+                background: {
+                    image: none;
+                    color: $secondaryColor;
+                }
+            }
+            &.outline {
+                background: {
+                    image: none;
+                    color: transparent;
+                }
+                color: $primaryColor;
+                border: solid 3px $primaryColor;
+                &:hover {
+                    @include prefix(transition, 0.3s ease-in-out, moz webkit ms o);
+                    background-color: $primaryColor;
+                    color: $backgroundColor;
+                }
+            }
+            &.danger {
+                background: {
+                    image: none;
+                    color: $dangerColor;
+                }
+                &:hover {
+                    @include prefix(transition, 0.3s ease-in-out, moz webkit ms o);
+                    background-color: #{$dangerColor}99;
+                }
+            }
+            &.small {
+                padding: 6px {
+                    left: 24px;
+                    right: 24px;
+                }
+            }
+        }
+        .input {
+            display: inline-block;
+            background-color: #{$foregroundColor}0d;
+            @include shadow();
+            padding: 12px;
+            color: $foregroundColor;
+            font-weight: 400;
+            text-decoration: none;
+            border: solid 1px #{$foregroundColor}40;
+            border-radius: 8px;
+            &:focus {
+                @include prefix(transition, 0.3s ease-in-out, moz webkit ms o);
+                background-color: $backgroundColor;
+            }
+        }
+        strong {
+            font-weight: 900;
+        }
+        b {
+            font-weight: 700;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .tabDesktop {
+            @include respond-to(xs) {
+                display: none !important;
+            }
+        }
+        .onlyMobile {
+            @include respond-to(s) {
+                display: none !important;
+            }
+            @include respond-to(m) {
+                display: none !important;
+            }
+            @include respond-to(l) {
+                display: none !important;
+            }
+        }
+    }
+}

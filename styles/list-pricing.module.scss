@@ -1,0 +1,28 @@
+@import "./variables";
+
+.listPricing {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    > div {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        > div {
+            flex-basis: 33%;
+            @include respond-to(xs) {
+                flex-basis: 100%;
+            }
+            padding: {
+                right: 12px;
+                left: 12px;
+            }
+            &:first-child {
+                padding-left: 0px;
+            }
+            &:last-child {
+                padding-right: 0px;
+            }
+        }
+    }
+}

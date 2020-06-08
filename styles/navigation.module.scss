@@ -1,0 +1,166 @@
+@import "./variables";
+
+.nav {
+    padding: {
+        top: 24px;
+        bottom: 24px;
+    }
+    &.navFixed {
+        @include prefix(transition, 0.3s ease-in-out, moz webkit ms o);
+        padding: {
+            top: 12px;
+            bottom: 12px;
+            right: 12px;
+        }
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-image: $primaryGradient;
+        @include shadow();
+        > div {
+            > .navMenu {
+                > ul {
+                    > li {
+                        > a {
+                            border-bottom: 3px solid $backgroundColor;
+                            color: $backgroundColor;
+                            &:hover {
+                                @include prefix(transition, 0.3s ease-in-out, moz webkit ms o);
+                                border-bottom: 3px solid $foregroundColor;
+                            }
+                        }
+                        > button {
+                            color: $backgroundColor !important;
+                            border: solid 3px $backgroundColor !important;
+                            &:hover {
+                                @include prefix(transition, 0.3s ease-in-out, moz webkit ms o);
+                                background-color: $backgroundColor !important;
+                                color: $primaryColor !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    > div {
+        display: flex;
+        > * {
+            margin: {
+                top: auto;
+                bottom: auto;
+            }
+        }
+        > .navLogo {
+            display: flex;
+            flex-grow: 1;
+            > * {
+                margin: {
+                    top: auto;
+                    bottom: auto;
+                }
+            }
+            > img {
+                flex-basis: auto;
+                margin-left: 24px;
+            }
+            > span {
+                flex-grow: 1;
+                margin: {
+                    left: 6px;
+                }
+                color: $backgroundColor;
+            }
+        }
+        > .navMenu {
+            flex-basis: auto;
+            > ul {
+                width: auto;
+                padding: 0;
+                list-style-type: none;
+                li {
+                    display: inline;
+                    margin-right: 24px;
+                    list-style: none;
+                }
+            }
+        }
+        .menu {
+            margin-right: 24px;
+            cursor: pointer;
+            font-size: 2em;
+            color: $backgroundColor;
+        }
+    }
+    .login {
+        background-color: #{$foregroundColor}99;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100vh;
+        width: 100vw;
+        overflow-y: scroll;
+        > div {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 80vw;
+            height: fit-content;
+            margin: auto;
+            background-color: $backgroundColor;
+            @include shadow();
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+            > * {
+                margin-bottom: 12px;
+                &:first-child {
+                    margin-bottom: 36px;
+                }
+                &:last-child {
+                    margin-top: 36px;
+                }
+            }
+            > div {
+                display: flex;
+                justify-content: flex-end;
+                > * {
+                    margin-left: 12px;
+                }
+            }
+        }
+        &.loginHide {
+            display: none;
+        }
+    }
+    .menuMobile {
+        background-color: $backgroundColor;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100vh;
+        width: 100vw;
+        overflow-y: scroll;
+        text-align: center;
+        > ul {
+            width: 100%;
+            padding: 0;
+            list-style-type: none;
+            li {
+                display: block;
+                margin-bottom: 24px;
+            }
+        }
+        &.menuMobileHide {
+            display: none;
+        }
+    }
+}

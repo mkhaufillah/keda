@@ -1,0 +1,14 @@
+.banner {
+    display: flex;
+    > * {
+        margin: auto;
+        padding: 24px;
+    }
+    > svg {
+        flex-grow: 1;
+    }
+    > div {
+        flex-grow: 2;
+        font-weight: 500;
+    }
+}

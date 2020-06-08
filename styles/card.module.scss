@@ -1,0 +1,39 @@
+@import "./variables";
+
+.card {
+    padding: 12px;
+    background-color: $backgroundColor;
+    @include shadow();
+    border-radius: 12px;
+    > div {
+        min-height: 300px;
+        > h3 {
+            color: $secondaryColor;
+        }
+        > ul {
+            padding: 0;
+            list-style-type: none;
+            > li {
+                margin-bottom: 12px;
+                &:before {
+                    content: "✓";
+                    margin-right: 6px;
+                    font-weight: 900;
+                    color: $secondaryColor;
+                }
+            }
+        }
+        &:first-child {
+            min-height: 0px;
+        }
+        &:last-child {
+            min-height: 0px;
+            background-color: $primaryColor;
+            border-radius: 6px;
+            > h1 {
+                text-align: center;
+                color: $backgroundColor;
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+@import "./variables";
+
+.footer {
+    background-image: $secondaryGradient;
+    > div {
+        display: flex;
+        padding: 24px;
+        > * {
+            margin: {
+                top: auto;
+                bottom: auto;
+            }
+        }
+        > span {
+            flex-grow: 1;
+        }
+        > ul {
+            flex-basis: auto;
+            > li {
+                display: inline;
+                list-style: none;
+                padding: 12px;
+            }
+        }
+    }
+}

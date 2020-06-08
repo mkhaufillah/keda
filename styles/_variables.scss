@@ -1,0 +1,47 @@
+$backgroundColor: #ffffff;
+$foregroundColor: #202020;
+$primaryColor: #00d0ff;
+$secondaryColor: #108de8;
+$dangerColor: #ec0033;
+$primaryGradient: linear-gradient(to right, $primaryColor, $secondaryColor);
+$secondaryGradient: linear-gradient(to right, $primaryColor, $backgroundColor);
+
+@mixin shadow($color: $foregroundColor) {
+    box-shadow: 2px 2px 8px 0 #{$color}0d;
+}
+
+@mixin prefix($property, $value, $prefixes) {
+    @each $prefix in $prefixes {
+        -#{$prefix}-#{$property}: $value;
+    }
+    #{$property}: $value;
+}
+
+$breakSmall: 600px;
+$breakMedium: 768px;
+$breakLarge: 992px;
+$breakXlarge: 1200px;
+
+@mixin respond-to($media) {
+    @if $media == xs {
+        @media only screen and (max-width: $breakSmall) {
+            @content;
+        }
+    } @else if $media == s {
+        @media only screen and (min-width: $breakSmall) {
+            @content;
+        }
+    } @else if $media == m {
+        @media only screen and (min-width: $breakMedium) {
+            @content;
+        }
+    } @else if $media == l {
+        @media only screen and (min-width: $breakLarge) {
+            @content;
+        }
+    } @else if $media == xl {
+        @media only screen and (min-width: $breakXlarge) {
+            @content;
+        }
+    }
+}
