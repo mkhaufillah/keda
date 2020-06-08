@@ -13,6 +13,9 @@ Karena nextjs sangat mudah dalam melakukan first time setup untuk aplikasi seder
 # todo
 
 [v] setup nextjs
+
 [v] create content
+
 [v] separate content to small component
+
 [v] styling with sass <https://sass-lang.com/>
